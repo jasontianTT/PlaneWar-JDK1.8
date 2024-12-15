@@ -90,6 +90,10 @@ public class GameWin extends JFrame {
  //           bgObj.paintself(gImage);
 //            planeObj.paintself(gImage);
 //            shellObj.paintself(gImage);
+
+            //将爆炸集合添加到所有元素集合中
+            GameUtils.gameObjList.addAll(GameUtils.explodeObjsList);
+
             //不再单独绘制某个游戏元素。因为所有游戏元素都放入了所有游戏集合中，这里只需要将集合中所有元素遍历出来然后绘制自身即可
             for(int i = 0;i < GameUtils.gameObjList.size() - 1;i++){
                 GameUtils.gameObjList.get(i).paintself(gImage);

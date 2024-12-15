@@ -32,6 +32,10 @@ public class Enemy1Obj extends GameObj{
         for (ShellObj shellObj: GameUtils.shellObjList){
             if(this.getRec().intersects(shellObj.getRec())){
                 //碰撞后将元素移除
+                //碰撞后出现爆炸效果
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
 
                 shellObj.setX(-100);
                 shellObj.setY(-100);

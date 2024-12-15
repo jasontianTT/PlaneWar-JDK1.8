@@ -94,6 +94,11 @@ public class GameObj {
         this.speed = speed;
     }
 
+    public GameObj(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     //绘制元素自身的方法
     public void paintself(Graphics g) {
         g.drawImage(img, x, y, null);

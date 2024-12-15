@@ -37,4 +37,6 @@ public class GameUtils {
 
     //移除游戏窗口的元素的集合
     public static List<GameObj> removeList = new ArrayList<>();
+    //爆炸集合
+    public static List<ExplodeObj> explodeObjsList =new ArrayList<>();
 }

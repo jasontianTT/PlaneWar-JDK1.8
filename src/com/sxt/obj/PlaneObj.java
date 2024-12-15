@@ -43,6 +43,11 @@ public class PlaneObj extends GameObj{
         //即enemy1Obj & 我方飞机
         for(Enemy1Obj enemy1Obj: GameUtils.enemy1ObjList){
             if(this.getRec().intersects(enemy1Obj.getRec())){
+                //碰撞后出现爆炸效果
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
+
                 //移除敌方飞机（移出窗口，并不是删除）
                 enemy1Obj.setX(-100);
                 enemy1Obj.setY(-100);
@@ -62,6 +67,11 @@ public class PlaneObj extends GameObj{
         //即enemy2Obj & 我方飞机
         for(Enemy2Obj enemy2Obj: GameUtils.enemy2ObjList){
             if(this.getRec().intersects(enemy2Obj.getRec())){
+                //碰撞后出现爆炸效果
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
+
                 //移除敌方飞机（移出窗口，并不是删除）
                 enemy2Obj.setX(-100);
                 enemy2Obj.setY(-100);
@@ -81,6 +91,11 @@ public class PlaneObj extends GameObj{
         //即enemy2BulletObj & 我方飞机
         for(Enemy2BulletObj enemy2BulletObj: GameUtils.enemy2bulletObjList){
             if(this.getRec().intersects(enemy2BulletObj.getRec())){
+                //碰撞后出现爆炸效果
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
+
                 //移除敌方飞机
                 //移出窗口，并不是删除
                 enemy2BulletObj.setX(-100);
