@@ -45,11 +45,12 @@ public class Enemy2Obj extends GameObj{
 
             }
             else if(this.getRec().intersects(shellObj.getRec())&&health<=0){
-                //血量为0，子弹消失、大飞机消失
                 //碰撞后出现爆炸效果
                 ExplodeObj explodeObj =new ExplodeObj(x,y);
                 GameUtils.explodeObjsList.add(explodeObj);
                 GameUtils.removeList.add(explodeObj);
+
+                //血量为0，子弹消失、大飞机消失
                 shellObj.setX(-100);
                 shellObj.setY(-100);
                 GameUtils.removeList.add(shellObj);

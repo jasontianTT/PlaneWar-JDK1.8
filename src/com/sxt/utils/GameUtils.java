@@ -26,8 +26,13 @@ public class GameUtils {
 
     //获取敌方boss1的图片
     public static Image littleboss1Img = Toolkit.getDefaultToolkit().getImage("imgs/littleboss1.png");
-    //获取敌方小飞机的图片
+    //获取敌方boss1子弹的图片
+    public static Image littleBoss1BulletImg = Toolkit.getDefaultToolkit().getImage("imgs/littleboss1bullet.png");
+
+    //获取敌方boss2的图片
     public static Image littleboss2Img = Toolkit.getDefaultToolkit().getImage("imgs/littleboss2.png");
+    //获取敌方boss2子弹的图片
+    public static Image littleBoss2BulletImg = Toolkit.getDefaultToolkit().getImage("imgs/littleboss2bullet.png");
 
 
 
@@ -47,4 +52,8 @@ public class GameUtils {
     public static List<GameObj> removeList = new ArrayList<>();
     //爆炸集合
     public static List<ExplodeObj> explodeObjsList =new ArrayList<>();
+    //boss1子弹集合
+    public static List<LittleBoss1Bullet> littleBoss1BulletList = new ArrayList<>();
+    //boss2子弹集合
+    public static List<LittleBoss2Bullet> littleBoss2BulletList = new ArrayList<>();
 }

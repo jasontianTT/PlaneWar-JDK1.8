@@ -34,7 +34,8 @@ public class GameWin extends JFrame {
     //敌方boss2对象
     LittleBoss2 littleBoss2= new LittleBoss2(GameUtils.littleboss2Img,172,112,300,-150,2,this);
 
-
+    //记录我方飞机的索引
+    public static int planeindex=0;
     public void launch(){
         //窗口是否可见
         this.setVisible(true);
@@ -49,6 +50,9 @@ public class GameWin extends JFrame {
         //将所有要绘制的游戏物体全部放入所有元素集合中进行绘制
         GameUtils.gameObjList.add(bgObj);
         GameUtils.gameObjList.add(planeObj);
+        //获取我方飞机索引值
+        planeindex=GameUtils.gameObjList.indexOf(planeObj);
+
         //添加鼠标的点击事件
         this.addMouseListener(new MouseAdapter(){
            @Override
@@ -90,7 +94,7 @@ public class GameWin extends JFrame {
             gImage.setColor(Color.blue);
             gImage.setFont(new Font("仿宋",Font.BOLD,30));
             gImage.drawString("鼠标左键开始游戏",180,300);
-            gImage.drawString("项目成员：张超，李庄严，田星杰",60,600);
+            gImage.drawString("项目成员：张超，李庄严，田星捷",60,600);
         }
         if(state == 1){
  //           bgObj.paintself(gImage);
@@ -147,6 +151,26 @@ public class GameWin extends JFrame {
             GameUtils.gameObjList.add(littleBoss1);
         }
 
+        //boss1子弹
+        if(count%15==0){
+            //当boss1已出现,添加子弹
+            if(GameUtils.gameObjList.contains(littleBoss1)){
+            GameUtils.littleBoss1BulletList.add(new LittleBoss1Bullet(GameUtils.littleBoss1BulletImg,42,42,littleBoss1.getX()+75,littleBoss1.getY()+100,4,this));
+            GameUtils.gameObjList.add(GameUtils.littleBoss1BulletList.get(GameUtils.littleBoss1BulletList.size() - 1));
+
+            }
+        }
+
+        //boss2子弹
+        if(count%40==0){
+            //当boss2已出现,添加子弹
+            if(GameUtils.gameObjList.contains(littleBoss2)){
+                GameUtils.littleBoss2BulletList.add(new LittleBoss2Bullet(GameUtils.littleBoss2BulletImg,21,59,littleBoss2.getX()+78,littleBoss2.getY()+100,8,this));
+                GameUtils.gameObjList.add(GameUtils.littleBoss2BulletList.get(GameUtils.littleBoss2BulletList.size() - 1));
+
+            }
+
+        }
     }
 
     public static void main(String[] args) {
