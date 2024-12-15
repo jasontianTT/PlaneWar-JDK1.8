@@ -29,6 +29,12 @@ public class GameWin extends JFrame {
     //记录游戏绘制的次数
     int count = 1;
 
+    //敌方boss1对象
+    LittleBoss1 littleBoss1= new LittleBoss1(GameUtils.littleboss1Img,172,112,-200,350,3,this);
+    //敌方boss2对象
+    LittleBoss2 littleBoss2= new LittleBoss2(GameUtils.littleboss2Img,172,112,300,-150,2,this);
+
+
     public void launch(){
         //窗口是否可见
         this.setVisible(true);
@@ -131,6 +137,16 @@ public class GameWin extends JFrame {
                 GameUtils.gameObjList.add(GameUtils.enemy2bulletObjList.get(GameUtils.enemy2bulletObjList.size() - 1));
             }
         }
+        //位置到600 且 boss2不存在时，boss2出现
+        if(count==600&&(!GameUtils.gameObjList.contains(littleBoss2))){
+            GameUtils.gameObjList.add(littleBoss2);
+        }
+
+        //位置到800 且 boss1不存在时，boss1出现
+        if(count==800&&(!GameUtils.gameObjList.contains(littleBoss1))){
+            GameUtils.gameObjList.add(littleBoss1);
+        }
+
     }
 
     public static void main(String[] args) {

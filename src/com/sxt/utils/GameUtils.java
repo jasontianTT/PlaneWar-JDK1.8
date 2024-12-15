@@ -24,6 +24,13 @@ public class GameUtils {
     //获取敌方大飞机子弹的图片
     public static Image enemy2BulletImg = Toolkit.getDefaultToolkit().getImage("imgs/enemy2Bullet.png");
 
+    //获取敌方boss1的图片
+    public static Image littleboss1Img = Toolkit.getDefaultToolkit().getImage("imgs/littleboss1.png");
+    //获取敌方小飞机的图片
+    public static Image littleboss2Img = Toolkit.getDefaultToolkit().getImage("imgs/littleboss2.png");
+
+
+
     //创建我方飞机子弹的集合
     public static List<ShellObj> shellObjList = new ArrayList<>();
     //创建敌方小飞机的集合
@@ -34,6 +41,7 @@ public class GameUtils {
     public static List<GameObj> gameObjList = new ArrayList<>();
     //敌方大飞机子弹的集合
     public static List<Enemy2BulletObj> enemy2bulletObjList = new ArrayList<>();
+
 
     //移除游戏窗口的元素的集合
     public static List<GameObj> removeList = new ArrayList<>();
