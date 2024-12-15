@@ -1,6 +1,7 @@
 package com.sxt.obj;
 
 import com.sxt.GameWin;
+import com.sxt.utils.GameUtils;
 
 import java.awt.*;
 
@@ -26,6 +27,23 @@ public class Enemy1Obj extends GameObj{
     public void paintself(Graphics g) {
         super.paintself(g);
         y+=speed;
+
+        //碰撞检测
+        for (ShellObj shellObj: GameUtils.shellObjList){
+            if(this.getRec().intersects(shellObj.getRec())){
+                //碰撞后将元素移除
+
+                shellObj.setX(-100);
+                shellObj.setY(-100);
+
+                this.setX(-100);
+                this.setY(-100);
+
+                GameUtils.removeList.add(shellObj);
+                GameUtils.removeList.add(this);
+
+            }
+        }
     }
 
     @Override

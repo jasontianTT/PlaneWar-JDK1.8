@@ -94,6 +94,9 @@ public class GameWin extends JFrame {
             for(int i = 0;i < GameUtils.gameObjList.size() - 1;i++){
                 GameUtils.gameObjList.get(i).paintself(gImage);
             }
+
+            //将要移除的元素从所有集合中删除
+            GameUtils.gameObjList.removeAll(GameUtils.removeList);
         }
         //将双缓存图片绘制在游戏窗口
         g.drawImage(offScreenImage,0,0,null);

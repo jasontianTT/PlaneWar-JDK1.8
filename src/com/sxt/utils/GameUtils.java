@@ -34,4 +34,7 @@ public class GameUtils {
     public static List<GameObj> gameObjList = new ArrayList<>();
     //敌方大飞机子弹的集合
     public static List<Enemy2BulletObj> enemy2bulletObjList = new ArrayList<>();
+
+    //移除游戏窗口的元素的集合
+    public static List<GameObj> removeList = new ArrayList<>();
 }
