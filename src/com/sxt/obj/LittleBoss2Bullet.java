@@ -6,6 +6,8 @@ import com.sxt.utils.GameUtils;
 import java.awt.*;
 
 public class LittleBoss2Bullet extends GameObj{
+    //子弹血量2
+    int health = 2;
     @Override
     public Image getImg() {
         return super.getImg();
@@ -37,6 +39,34 @@ public class LittleBoss2Bullet extends GameObj{
         //（子弹位置-飞机位置）/30
         //除以30让子弹运动更流畅
         this.x-=(this.x-GameUtils.gameObjList.get(GameWin.planeindex).getX())/30;
+
+        //boss2子弹和我方子弹碰撞，子弹消失
+        for (ShellObj shellObj: GameUtils.shellObjList){
+            if(this.getRec().intersects(shellObj.getRec())&&health>0){
+                //子弹消失
+                shellObj.setX(-100);
+                shellObj.setY(-100);
+                GameUtils.removeList.add(shellObj);
+                health--;
+            }
+            //血量为0，子弹消失
+            else if (this.getRec().intersects(shellObj.getRec())&&health<=0){
+                //绘制爆炸
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
+                //我方子弹消失
+                shellObj.setX(-100);
+                shellObj.setY(-100);
+                GameUtils.removeList.add(shellObj);
+
+                //该子弹消失
+                this.x=-200;
+                this.y=-200;
+                GameUtils.removeList.add(this);
+
+            }
+        }
     }
 
     @Override

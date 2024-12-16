@@ -13,6 +13,9 @@ public class PlaneObj extends GameObj{
         return super.getImg();
     }
 
+    LittleBoss1 littleBoss1 = new LittleBoss1();
+    LittleBoss2 littleBoss2 = new LittleBoss2();
+
     public PlaneObj() {
         super();
     }
@@ -112,8 +115,75 @@ public class PlaneObj extends GameObj{
 
             }
         }
+        //boss1与我方碰撞，boss1不消失，我方消失
+        if(this.getRec().intersects(littleBoss1.getRec())){
+            //绘制爆炸
+            ExplodeObj explodeObj =new ExplodeObj(x,y);
+            GameUtils.explodeObjsList.add(explodeObj);
+            GameUtils.removeList.add(explodeObj);
 
+            //移除我方飞机
+            //移出窗口
+            this.x=-200;
+            this.y=-200;
+            GameUtils.removeList.add(this);
 
+        }
+        if(this.getRec().intersects(littleBoss2.getRec())){
+            //绘制爆炸
+            ExplodeObj explodeObj =new ExplodeObj(x,y);
+            GameUtils.explodeObjsList.add(explodeObj);
+            GameUtils.removeList.add(explodeObj);
+
+            //移除我方飞机
+            //移出窗口
+            this.x=-200;
+            this.y=-200;
+            GameUtils.removeList.add(this);
+
+        }
+        //我方飞机和boss1子弹碰撞后，两者都消失
+        for (LittleBoss1Bullet littleBoss1Bullet:GameUtils.littleBoss1BulletList){
+            if(this.getRec().intersects(littleBoss1Bullet.getRec())){
+                //绘制爆炸
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
+
+                //移除子弹
+                littleBoss1Bullet.setX(-100);
+                littleBoss1Bullet.setY(-100);
+
+                //移除我方飞机
+                this.x=-200;
+                this.y=-200;
+
+                //加入移除列表
+                GameUtils.removeList.add(littleBoss1Bullet);
+                GameUtils.removeList.add(this);
+            }
+        }
+        //我方飞机和boss2子弹碰撞后，两者都消失
+        for (LittleBoss2Bullet littleBoss2Bullet:GameUtils.littleBoss2BulletList){
+            if(this.getRec().intersects(littleBoss2Bullet.getRec())){
+                //绘制爆炸
+                ExplodeObj explodeObj =new ExplodeObj(x,y);
+                GameUtils.explodeObjsList.add(explodeObj);
+                GameUtils.removeList.add(explodeObj);
+
+                //移除子弹
+                littleBoss2Bullet.setX(-100);
+                littleBoss2Bullet.setY(-100);
+
+                //移除我方飞机
+                this.x=-200;
+                this.y=-200;
+
+                //加入移除列表
+                GameUtils.removeList.add(littleBoss2Bullet);
+                GameUtils.removeList.add(this);
+            }
+        }
     }
 
     @Override

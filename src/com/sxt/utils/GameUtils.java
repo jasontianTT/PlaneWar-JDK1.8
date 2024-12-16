@@ -34,7 +34,8 @@ public class GameUtils {
     //获取敌方boss2子弹的图片
     public static Image littleBoss2BulletImg = Toolkit.getDefaultToolkit().getImage("imgs/littleboss2bullet.png");
 
-
+    //获取补给品图片
+    public static Image giftImg = Toolkit.getDefaultToolkit().getImage("imgs/gift.png");
 
     //创建我方飞机子弹的集合
     public static List<ShellObj> shellObjList = new ArrayList<>();
@@ -56,4 +57,7 @@ public class GameUtils {
     public static List<LittleBoss1Bullet> littleBoss1BulletList = new ArrayList<>();
     //boss2子弹集合
     public static List<LittleBoss2Bullet> littleBoss2BulletList = new ArrayList<>();
+
+    //补给集合
+    public static List<GiftObj> giftObjList = new ArrayList<>();
 }
